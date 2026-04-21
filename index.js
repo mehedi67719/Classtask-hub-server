@@ -19,12 +19,14 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 const tasksrouter=require("./router/tasks")
 const authentication=require('./router/authentication')
+const userrouter=require('./router/users')
 
 
 
 
 app.use('/task',tasksrouter(supabase))
 app.use('/auth',authentication(supabase))
+app.use('/user',userrouter(supabase))
 
 
 app.get('/', (req, res) => {
